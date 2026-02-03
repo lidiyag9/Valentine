@@ -84,3 +84,9 @@ button {
     opacity: 0;
   }
 }
+.photo {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
