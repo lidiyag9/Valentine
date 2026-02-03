@@ -45,16 +45,79 @@ yesBtn.addEventListener("click", () => {
   setTimeout(() => clearInterval(heartsInterval), 1500);
 
   card.innerHTML = `
-  <div class="emoji">🥰💘🥹</div>
-  <h1>YES!!!</h1>
+    <div class="emoji">🥰💘🥹</div>
+    <h1>YES!!!</h1>
 
-  <img 
-    src="IMG_4176.jpeg" 
-    alt="Us together"
-    class="photo"
-  >
+    <div class="slider fade-in">
+      <button class="nav left">‹</button>
 
-  <p>I love you 💖</p>
-  <p>Happy Valentine’s Day</p>
-`;
+      <img src="IMG_4176.jpeg" class="slide active">
+      <img src="IMG_4259.jpeg" class="slide">
+      <img src="IMG_4268.jpeg" class="slide">
+
+      <button class="nav right">›</button>
+    </div>
+
+    <p>I love you, Moshe 💖</p>
+    <p>Happy Valentine’s Day</p>
+  `;
+
+  initSlider();
 });
+
+function initSlider() {
+  const slides = document.querySelectorAll(".slide");
+  const slider = document.querySelector(".slider");
+
+  let index = 0;
+  let startX = 0;
+
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+    createPhotoHearts();
+  }
+
+  // автоперелистывание
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }, 3000);
+
+  // свайп пальцем
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        index = (index + 1) % slides.length;
+      } else {
+        index = (index - 1 + slides.length) % slides.length;
+      }
+      showSlide(index);
+    }
+  });
+
+  showSlide(index);
+}
+function createPhotoHearts() {
+  const slider = document.querySelector(".slider");
+
+  for (let i = 0; i < 6; i++) {
+    const heart = document.createElement("div");
+    heart.className = "photo-heart";
+    heart.innerText = "💖";
+
+    heart.style.left = Math.random() * 80 + 10 + "%";
+    heart.style.top = Math.random() * 60 + 20 + "%";
+
+    slider.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1200);
+  }
+}
