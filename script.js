@@ -45,9 +45,16 @@ yesBtn.addEventListener("click", () => {
   setTimeout(() => clearInterval(heartsInterval), 1500);
 
   card.innerHTML = `
-    <div class="emoji">🥰💘🥹</div>
-    <h1>YES!!!</h1>
-    <p>I love you 💖</p>
-    <p>Happy Valentine’s Day</p>
-  `;
+  <div class="emoji">🥰💘🥹</div>
+  <h1>YES!!!</h1>
+
+  <img 
+    src="us.jpg" 
+    alt="Us together"
+    class="photo"
+  >
+
+  <p>I love you 💖</p>
+  <p>Happy Valentine’s Day</p>
+`;
 });
