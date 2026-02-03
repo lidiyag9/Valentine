@@ -163,3 +163,24 @@ button {
     transform: translateY(-40px) scale(1.6);
   }
 }
+.final-line {
+  margin: 18px 0 10px;
+  font-size: 15px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.replay-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #ff4d6d;
+  color: #ff4d6d;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.replay-btn:active {
+  transform: scale(0.96);
+}
