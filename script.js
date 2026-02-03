@@ -1,31 +1,54 @@
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const card = document.getElementById("card");
+const sound = document.getElementById("sound");
 
-function moveButton() {
-  const maxX = 120;
-  const maxY = 60;
+let scale = 1;
 
-  const x = Math.random() * maxX - maxX / 2;
-  const y = Math.random() * maxY - maxY / 2;
+// движение + уменьшение No
+function moveNo() {
+  const x = Math.random() * 160 - 80;
+  const y = Math.random() * 80 - 40;
 
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  scale -= 0.08;
+  if (scale < 0.5) scale = 0.5;
+
+  noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 }
 
-// 👆 Реакция на НАВЕДЕНИЕ (десктоп)
-noBtn.addEventListener("mouseover", moveButton);
+// десктоп
+noBtn.addEventListener("mouseover", moveNo);
 
-// 📱 Реакция на ТАП (мобильный)
+// мобильный
 noBtn.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  moveButton();
+  moveNo();
 });
 
+// сердечки
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.top = window.innerHeight - 30 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1200);
+}
+
+// YES
 yesBtn.addEventListener("click", () => {
+  sound.play();
+
+  const heartsInterval = setInterval(createHeart, 120);
+  setTimeout(() => clearInterval(heartsInterval), 1500);
+
   card.innerHTML = `
-    <div class="emoji">💘🥰💘</div>
-    <h1>YAY!!!</h1>
-    <p>I knew it 💕</p>
-    <p>Happy Valentine’s Day, Moshe 😘</p>
+    <div class="emoji">🥰💘🥹</div>
+    <h1>YES!!!</h1>
+    <p><strong>System update:</strong><br>Girlfriend = true ✅</p>
+    <p>I love you, Moshe 💖</p>
+    <p>Happy Valentine’s Day</p>
   `;
 });
