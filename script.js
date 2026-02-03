@@ -49,17 +49,20 @@ yesBtn.addEventListener("click", () => {
     <h1>YES!!!</h1>
 
     <div class="slider fade-in">
-      <button class="nav left">‹</button>
-
       <img src="IMG_4176.jpeg" class="slide active">
       <img src="IMG_4259.jpeg" class="slide">
       <img src="IMG_4268.jpeg" class="slide">
-
-      <button class="nav right">›</button>
     </div>
 
-    <p>I love you, Moshe 💖</p>
+    <p class="final-line">
+    Every moment with you is my favorite.
+  </p>
+  <p>I love you 💖</p>
     <p>Happy Valentine’s Day</p>
+
+  <button id="replay" class="replay-btn">
+    Replay 💞
+  </button>
   `;
 
   initSlider();
@@ -121,3 +124,8 @@ function createPhotoHearts() {
     setTimeout(() => heart.remove(), 1200);
   }
 }
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "replay") {
+    location.reload();
+  }
+});
