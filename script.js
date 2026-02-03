@@ -51,7 +51,8 @@ yesBtn.addEventListener("click", () => {
     <div class="slider fade-in">
       <img src="IMG_4176.jpeg" class="slide active">
       <img src="IMG_4259.jpeg" class="slide">
-      <img src="IMG_4268.jpeg" class="slide">
+      <img src="IMG_4298.jpeg" class="slide">
+      <img src="IMG_4188.jpeg" class="slide">
     </div>
 
     <p class="final-line">
