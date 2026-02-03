@@ -90,3 +90,76 @@ button {
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+/* плавное появление */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* слайдер */
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.slide.active {
+  display: block;
+}
+
+/* кнопки */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.nav.left {
+  left: 8px;
+}
+
+.nav.right {
+  right: 8px;
+}
+/* сердечки поверх фото */
+.photo-heart {
+  position: absolute;
+  font-size: 20px;
+  animation: heartFloat 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes heartFloat {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.6);
+  }
+}
