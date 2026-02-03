@@ -49,7 +49,7 @@ yesBtn.addEventListener("click", () => {
   <h1>YES!!!</h1>
 
   <img 
-    src="us.jpg" 
+    src="IMG_4176.jpeg" 
     alt="Us together"
     class="photo"
   >
