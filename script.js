@@ -47,8 +47,7 @@ yesBtn.addEventListener("click", () => {
   card.innerHTML = `
     <div class="emoji">🥰💘🥹</div>
     <h1>YES!!!</h1>
-    <p><strong>System update:</strong><br>Girlfriend = true ✅</p>
-    <p>I love you, Moshe 💖</p>
+    <p>I love you 💖</p>
     <p>Happy Valentine’s Day</p>
   `;
 });
